@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "antd/dist/antd.css";
+import { Button } from "antd";
 
 const Form = (props) => {
   const [userName, setUserName] = useState("");
@@ -21,7 +23,9 @@ const Form = (props) => {
         value={userName}
         onChange={(event) => setUserName(event.target.value)}
       />
-      <button>Add Card</button>
+      <Button htmlType="submit" type="primary">
+        Add Card
+      </Button>
     </form>
   );
 };

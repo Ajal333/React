@@ -1,18 +1,22 @@
 import React from "react";
+import { Card } from "antd";
+import "antd/dist/antd.css";
 
-const Card = (props) => {
+const { Meta } = Card;
+
+const Cards = (props) => {
   const profile = props;
   return (
     <div>
-      <img src={profile.avatar_url} alt="Profile" />
-      <div style={{ display: "inline-block" }}>
-        <div>
-          <h1>{profile.name}</h1>
-        </div>
-        <div>{profile.login} </div>
-      </div>
+      <Card
+        hoverable
+        style={{ width: 240 }}
+        cover={<img alt="example" src={profile.avatar_url} />}
+      >
+        <Meta title={profile.name} description={profile.login} />
+      </Card>
     </div>
   );
 };
 
-export default Card;
+export default Cards;
