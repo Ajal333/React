@@ -1,32 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import CardList from "./Components/CardList";
 import Form from "./Components/Form";
 
-class App extends React.Component {
-  state = {
-    profile: [],
+const App = () => {
+  const [profile, setProfile] = useState([]);
+
+  const addNewProfile = (newData) => {
+    setProfile([...profile, newData]);
   };
 
-  addNewProfile = (newData) => {
-    this.setState((prevState) => ({
-      profile: [...prevState.profile, newData],
-    }));
-  };
-
-  render() {
-    return (
+  return (
+    <div>
       <div>
-        <div>
-          <h1>The Github Cards App</h1>
-        </div>
-        <div>
-          <Form addData={this.addNewProfile} />
-        </div>
-        <CardList profiles={this.state.profile} />
+        <h1>The Github Cards App</h1>
       </div>
-    );
-  }
-}
+      <div>
+        <Form addData={addNewProfile} />
+      </div>
+      <CardList profiles={profile} />
+    </div>
+  );
+};
 
 export default App;

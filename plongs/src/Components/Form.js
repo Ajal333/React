@@ -1,33 +1,29 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-class Form extends Component {
-  state = {
-    userName: "",
-  };
+const Form = (props) => {
+  const [userName, setUserName] = useState("");
 
-  handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.get(
-      `https://api.github.com/users/${this.state.userName}`
+      `https://api.github.com/users/${userName}`
     );
-    this.props.addData(response.data);
-    this.setState({ userName: "" });
+    props.addData(response.data);
+    setUserName({ userName: "" });
   };
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="GitHub userName"
-          value={this.state.userName}
-          onChange={(event) => this.setState({ userName: event.target.value })}
-        />
-        <button>Add Card</button>
-      </form>
-    );
-  }
-}
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="GitHub userName"
+        value={userName}
+        onChange={(event) => setUserName(event.target.value)}
+      />
+      <button>Add Card</button>
+    </form>
+  );
+};
 
 export default Form;
