@@ -10,7 +10,7 @@ const Form = (props) => {
       `https://api.github.com/users/${userName}`
     );
     props.addData(response.data);
-    setUserName({ userName: "" });
+    setUserName("");
   };
 
   return (
