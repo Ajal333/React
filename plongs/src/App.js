@@ -13,7 +13,9 @@ const App = () => {
   return (
     <div>
       <div>
-        <h1>The Github Cards App</h1>
+        <h1 style={{ textAlign: "center", fontSize: 60 }}>
+          The Github Cards App
+        </h1>
       </div>
       <div>
         <Form addData={addNewProfile} />

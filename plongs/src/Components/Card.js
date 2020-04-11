@@ -8,13 +8,16 @@ const Cards = (props) => {
   const profile = props;
   return (
     <div>
-      <Card
-        hoverable
-        style={{ width: 240 }}
-        cover={<img alt="example" src={profile.avatar_url} />}
-      >
-        <Meta title={profile.name} description={profile.login} />
-      </Card>
+      <a href={profile.html_url} target="_blank" rel="noopener noreferrer">
+        {" "}
+        <Card
+          hoverable
+          style={{ width: 240 }}
+          cover={<img alt="example" src={profile.avatar_url} />}
+        >
+          <Meta title={profile.name} description={profile.login} />
+        </Card>
+      </a>
     </div>
   );
 };
