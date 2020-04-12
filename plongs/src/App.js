@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import "./App.css";
 import CardList from "./Components/CardList";
 import Form from "./Components/Form";
+// import axios from "axios";
+// import { Button } from "antd";
 
 const App = () => {
   const [profile, setProfile] = useState([]);
+  // let resp = "";
 
   const addNewProfile = (newData) => {
     setProfile([...profile, newData]);
   };
+
+  // const api = async () => {
+  //   const response = await axios.get("https://localhost:8000/api/");
+  //   resp = response;
+  // };
 
   return (
     <div>
@@ -21,6 +29,10 @@ const App = () => {
         <Form addData={addNewProfile} />
       </div>
       <CardList profiles={profile} />
+      {/* <Button htmlType="submit" type="primary" onClick={api}>
+        Show Api
+      </Button>
+      <h1>{resp}</h1> */}
     </div>
   );
 };
